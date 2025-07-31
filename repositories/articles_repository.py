@@ -22,12 +22,14 @@ class ArticlesRepository:
         """
         prompt = ChatPromptTemplate.from_messages(
             [
-                ("system", """You are a helpful assistant that searches for valid articles in the web and wikipedia and create a new article.
+                ("system", """You are a helpful assistant that searches for valid articles in the web and wikipedia and use the information to create a brand new article.
+                The article must be about the query and must be a new article that is not already in the web.
+                The article must be written in a way that is easy to understand and is not too long or too short.
                 You must return the results in the following JSON format:
                 {{
                     "title": "Article Title",
                     "body": "The body of the new article that you created",
-                    "sources": ["the authors of the articles that you searched for"]
+                    "sources": ["the authors of the articles that you searched for", "the wikipedia pages that you used to create the article", "ohters"]
                 }}
                 
                 Make sure to return exactly this JSON format with the article found."""),
