@@ -1,26 +1,24 @@
-# Usa una imagen oficial de Python
+# Use python 3.10 slim
 FROM python:3.10-slim
 
-# Establece el directorio de trabajo
+# Set the working directory
 WORKDIR /app
 
-# Copia los archivos de dependencias primero (mejor cache)
+# Copy the dependencies file first (better cache)
 COPY requirements.txt .
 
-# Instala las dependencias
+# Install the dependencies
 RUN pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir -r requirements.txt
 
-# Copia el resto del código
+# Copy the rest of the code
 COPY . .
 
-# Expone el puerto que usará Cloud Run
+# Expose the port that will be used by Cloud Run
 EXPOSE 8080
 
-# Variable de entorno para Google Cloud Run
+# Environment variable 
 ENV PORT=8080
 
-# Si usas variables de entorno como FIREBASE_SERVICE_ACCOUNT_PATH, configúralas en Cloud Run
-
-# Comando de arranque
+# Start command
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8080"]
