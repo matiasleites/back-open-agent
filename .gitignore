@@ -1,0 +1,11 @@
+open-general-agent-fb-config.json
+.env
+# python ignores
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pyw
+*.pyz
+*.pywz
+*.pyzw

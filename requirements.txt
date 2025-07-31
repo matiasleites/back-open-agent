@@ -1,0 +1,15 @@
+langchain 
+wikipedia 
+langchain-community 
+langchain-openai
+langchain-anthropic
+python-dotenv
+pydantic
+duckduckgo-search
+fastapi
+uvicorn
+python-multipart
+python-jose[cryptography]
+firebase-admin
+google-generativeai
+google-genai
