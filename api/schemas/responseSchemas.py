@@ -6,4 +6,4 @@ class Article(BaseModel):
     """
     title: str
     body: str
-    sources: list[str]
+    references: list[str]

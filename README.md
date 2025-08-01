@@ -90,26 +90,20 @@ uvicorn main:app --host 0.0.0.0 --port 8000
 **Endpoint:** `GET /api/agent/articles`
 
 **Parameters:**
-- `query` (required): The search query
-- `limit` (optional): Number of results to return (default: 10)
+- `about` (required): The topic about of the article
+- `lang` (optional): The language of the article (default: pt)
 
 **Example Request:**
 ```bash
-curl "http://127.0.0.1:8000/api/agent/articles?query=capital%20of%20argentina&limit=3"
+curl "http://127.0.0.1:8000/api/agent/articles?about=capital%20of%20argentina&lang=en"
 ```
 
 **Example Response:**
 ```json
 {
-  "articles": [
-    {
-      "title": "Buenos Aires - Wikipedia",
-      "description": "Comprehensive information about Buenos Aires, the capital of Argentina",
-      "image_url": "https://example.com/image.jpg",
-      "link": "https://en.wikipedia.org/wiki/Buenos_Aires",
-      "score": 0.95
-    }
-  ]
+  "title": "Buenos Aires - Wikipedia",
+  "body": "Comprehensive information about Buenos Aires, the capital of Argentina",
+  "references": ["https://en.wikipedia.org/wiki/Buenos_Aires"]
 }
 ```
 
